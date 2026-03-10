@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AltingERLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-top: #121212;
+            --bg-bottom: #080808;
+            --accent-blue: #3b82f6;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* Refined Logo Gradient */
+        .logo-gradient {
+            background: linear-gradient(to bottom, #ffffff 50%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+        }
+
+        /* Premium Bento Cards */
+        .bento-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Subtle Glow Animation */
+        .status-dot {
+            box-shadow: 0 0 12px var(--accent-blue);
+        }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="selection:bg-blue-500/30">
+
+    <section class="min-h-screen flex flex-col items-center justify-center px-6">
+        <div class="reveal mb-6 px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500 status-dot"></span>
+            </span>
+            <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-gray-400">System Online</span>
+        </div>
+
+        <div class="reveal p-4 overflow-visible">
+            <h1 class="text-8xl md:text-[10rem] font-black tracking-tighter logo-gradient select-none">
+                AltingERLC
+            </h1>
+        </div>
+        
+        <div class="reveal text-center mt-2">
+            <p class="text-gray-500 text-xs tracking-[0.5em] uppercase font-medium">Managed by Atmosphere Interactive</p>
+            <p class="text-gray-600 italic font-light mt-2">Redefining the standard.</p>
+        </div>
+
+        <div class="reveal flex flex-col md:flex-row gap-4 mt-12">
+            <button class="bg-white text-black hover:bg-gray-200 px-10 py-4 rounded-full font-bold transition-all active:scale-95 shadow-xl">
+                Join Discord
+            </button>
+            <a href="#pricing" class="border border-white/10 hover:bg-white/5 px-10 py-4 rounded-full font-bold transition-all flex items-center gap-2">
+                Browse Catalog <span class="opacity-40">↓</span>
+            </a>
+        </div>
+    </section>
+
+    <div id="stats" class="max-w-6xl mx-auto py-24 px-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="reveal bento-card p-8 rounded-3xl text-center">
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest mb-2">Alts Deployed Today</p>
+                <h3 class="text-4xl font-black counter" data-target="10">0</h3>
+            </div>
+            <div class="reveal bento-card p-8 rounded-3xl text-center">
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest mb-2">Active Sessions</p>
+                <h3 class="text-4xl font-black counter" data-target="0">0</h3>
+            </div>
+            <div class="reveal bento-card p-8 rounded-3xl text-center">
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest mb-2">Servers Filled</p>
+                <h3 class="text-4xl font-black counter" data-target="0">0</h3>
+            </div>
+            <div class="reveal bento-card p-8 rounded-3xl text-center border-blue-500/20">
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest mb-2">Uptime</p>
+                <h3 class="text-4xl font-black text-blue-500"><span class="counter" data-target="99">0</span>%</h3>
+            </div>
+        </div>
+    </div>
+
+    <section id="pricing" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="reveal text-center mb-16">
+            <h2 class="text-4xl font-black tracking-tight mb-4 text-gray-200">Tiered Access</h2>
+            <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="reveal bento-card rounded-[2.5rem] p-10 flex flex-col">
+                <span class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-8 flex items-center gap-2">
+                    <div class="w-1 h-1 bg-gray-500 rounded-full"></div> 10 Units
+                </span>
+                <div class="flex items-baseline mb-2">
+                    <span class="text-6xl font-black tracking-tighter">80</span>
+                    <span class="text-blue-500 font-bold ml-2">R$</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-12">8 R$ / unit</p>
+                <button class="w-full bg-white/5 border border-white/10 py-4 rounded-2xl font-bold hover:bg-blue-600 hover:border-blue-500 transition-all">Buy Now</button>
+            </div>
+
+            <div class="reveal bento-card rounded-[2.5rem] p-10 flex flex-col ring-1 ring-blue-500/50 bg-blue-500/[0.02]">
+                <span class="text-blue-400 text-xs font-bold uppercase tracking-widest mb-8 flex items-center gap-2">
+                    <div class="w-1 h-1 bg-blue-400 rounded-full animate-pulse"></div> 20 Units
+                </span>
+                <div class="flex items-baseline mb-2">
+                    <span class="text-6xl font-black tracking-tighter">150</span>
+                    <span class="text-blue-500 font-bold ml-2">R$</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-12">7.5 R$ / unit</p>
+                <button class="w-full bg-blue-600 py-4 rounded-2xl font-bold hover:bg-blue-500 shadow-lg shadow-blue-500/20 transition-all">Buy Now</button>
+            </div>
+
+            <div class="reveal bento-card rounded-[2.5rem] p-10 flex flex-col">
+                <span class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-8 flex items-center gap-2">
+                    <div class="w-1 h-1 bg-gray-500 rounded-full"></div> 30 Units
+                </span>
+                <div class="flex items-baseline mb-2">
+                    <span class="text-6xl font-black tracking-tighter">220</span>
+                    <span class="text-blue-500 font-bold ml-2">R$</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-12">7 R$ / unit</p>
+                <button class="w-full bg-white/5 border border-white/10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all">Buy Now</button>
+            </div>
+
+            <div class="reveal bento-card rounded-[2.5rem] p-10 flex flex-col">
+                <span class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-8 flex items-center gap-2">
+                    <div class="w-1 h-1 bg-gray-500 rounded-full"></div> 40 Units
+                </span>
+                <div class="flex items-baseline mb-2">
+                    <span class="text-6xl font-black tracking-tighter">500</span>
+                    <span class="text-blue-500 font-bold ml-2">R$</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-12">12.5 R$ / unit</p>
+                <button class="w-full bg-white/5 border border-white/10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 max-w-5xl mx-auto space-y-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="reveal bento-card p-6 rounded-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-white/5 rounded-2xl text-xl">👑</div>
+                    <div class="text-left"><h4 class="font-bold">Life-Time</h4><p class="text-[10px] text-gray-500">Permanent Access</p></div>
+                </div>
+                <span class="font-black text-blue-500">2,000 R$</span>
+            </button>
+            <button class="reveal bento-card p-6 rounded-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-white/5 rounded-2xl text-xl">⚡</div>
+                    <div class="text-left"><h4 class="font-bold">Instant</h4><p class="text-[10px] text-gray-500">0 Delay Delivery</p></div>
+                </div>
+                <span class="font-black text-blue-500">350 R$</span>
+            </button>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="text-center font-bold text-gray-400 uppercase tracking-widest text-xs mb-8">Protocol & Terms</h3>
+            <details class="reveal bento-card rounded-2xl overflow-hidden group">
+                <summary class="p-6 cursor-pointer list-none font-bold text-sm flex justify-between items-center hover:text-blue-400 transition-colors">
+                    1. Refund Policy <span class="opacity-20 group-open:rotate-180 transition-transform">↓</span>
+                </summary>
+                <div class="px-6 pb-6 text-xs text-gray-500 leading-relaxed">No refunds are provided after deployment. Contact support for technical issues.</div>
+            </details>
+            <details class="reveal bento-card rounded-2xl overflow-hidden group">
+                <summary class="p-6 cursor-pointer list-none font-bold text-sm flex justify-between items-center hover:text-blue-400 transition-colors">
+                    2. Service Limits <span class="opacity-20 group-open:rotate-180 transition-transform">↓</span>
+                </summary>
+                <div class="px-6 pb-6 text-xs text-gray-500 leading-relaxed">We reserve the right to change prices and/or terms at any time without any prior notice, we will honor all purchases that are made at a time before terms change.</div>
+            </details>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-[10px] text-gray-700 uppercase tracking-[0.4em] font-bold">
+        &copy; 2026 AltingERLC
+    </footer>
+
+    <script>
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if(e.isIntersecting) {
+                    e.target.classList.add('active');
+                    const c = e.target.querySelectorAll('.counter');
+                    c.forEach(n => {
+                        const target = +n.getAttribute('data-target');
+                        let count = 0;
+                        const update = () => {
+                            const speed = target / 100;
+                            if(count < target) {
+                                count += speed;
+                                n.innerText = Math.ceil(count).toLocaleString();
+                                setTimeout(update, 10);
+                            } else n.innerText = target.toLocaleString();
+                        }
+                        update();
+                    });
+                }
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+    </script>
+</body>
+</html>
